@@ -3,809 +3,628 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Chapter 8: Co-Governing and Pothole Politics</title>
+<title>Co-Governing and Pothole Politics</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1614;
-    --paper: #f6f1ea;
-    --cream: #efe7d8;
+    --ink: #14110f;
+    --paper: #f5efe6;
+    --cream: #ede4d2;
     --rule: #2a2421;
-    --accent: #c0392b;
-    --accent2: #1e5b4d;
-    --muted: #6b6157;
+    --accent: #b53524;
+    --accent2: #1d5a4d;
+    --muted: #6f6356;
     --gold: #b8893c;
   }
-  .reveal { font-family: 'Inter', system-ui, sans-serif; font-size: 28px; color: var(--ink); }
-  .reveal .slides { text-align: left; }
-  .reveal .slides section { padding: 0 4vw; }
+  html, body, .reveal, .reveal .slides { height: 100%; }
   body, .reveal { background: var(--paper); }
+  .reveal {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .reveal .slides { text-align: left; }
+  .reveal .slides section,
+  .reveal .slides section > section {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 4vh 6vw;
+    box-sizing: border-box;
+  }
   .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-    font-family: 'Fraunces', 'Iowan Old Style', serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-family: 'Inter', sans-serif;
     color: var(--ink);
     text-transform: none;
-    line-height: 1.05;
-    margin: 0 0 0.6em 0;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    margin: 0 0 0.5em 0;
+    font-weight: 700;
   }
-  .reveal h1 { font-size: 2.4em; }
-  .reveal h2 { font-size: 1.7em; }
-  .reveal h3 { font-size: 1.2em; color: var(--muted); font-weight: 500; }
-  .reveal p, .reveal li { line-height: 1.45; color: var(--ink); }
-  .reveal em { font-style: italic; color: var(--accent2); }
-  .reveal strong { font-weight: 700; color: var(--ink); }
-  .reveal blockquote {
+  .reveal h1 { font-size: 4.2em; letter-spacing: -0.035em; }
+  .reveal h2 { font-size: 2.6em; font-weight: 600; }
+  .reveal h3 { font-size: 1.6em; font-weight: 600; color: var(--muted); }
+  .reveal p, .reveal li {
+    line-height: 1.4;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .reveal em { font-style: italic; }
+  .reveal strong { font-weight: 700; }
+
+  .kicker {
+    font-size: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 2em;
+  }
+  .subtitle {
+    font-size: 1.2em;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 0.5em;
+  }
+  .sources {
+    font-size: 0.6em;
+    line-height: 1.55;
+    color: var(--muted);
+    font-weight: 400;
+    max-width: 70%;
+    margin-top: 3em;
+  }
+  .sources strong { color: var(--ink); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.85em; display: block; margin-bottom: 0.8em; }
+
+  blockquote.bq {
     background: transparent;
     border: none;
-    border-left: 4px solid var(--accent);
+    border-left: 5px solid var(--accent);
     padding: 0.4em 0 0.4em 1em;
     margin: 0.6em 0;
-    font-family: 'Fraunces', serif;
-    font-size: 1.05em;
-    font-style: italic;
+    font-weight: 500;
     box-shadow: none;
     width: auto;
+    font-style: normal;
+    font-size: 1.6em;
+    line-height: 1.25;
     color: var(--ink);
   }
-  .reveal blockquote.green { border-left-color: var(--accent2); }
-  .reveal blockquote.gold { border-left-color: var(--gold); }
+  blockquote.bq.green { border-left-color: var(--accent2); }
+  blockquote.bq.gold { border-left-color: var(--gold); }
+  blockquote.bq.small { font-size: 1.2em; }
+  blockquote.bq.huge { font-size: 2em; line-height: 1.18; }
   .speaker {
     display: block;
-    margin-top: 0.4em;
-    font-style: normal;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.78em;
+    margin-top: 0.6em;
+    font-size: 0.55em;
+    font-weight: 500;
     color: var(--muted);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
+    font-style: normal;
   }
-  .kicker {
-    font-family: 'JetBrains Mono', monospace;
+
+  .pull {
+    font-size: 2.2em;
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .pull .accent { color: var(--accent); }
+  .pull .accent2 { color: var(--accent2); }
+
+  .small { font-size: 0.75em; color: var(--muted); }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc;
+    columns: 1;
+  }
+  .toc-list li {
+    counter-increment: toc;
+    font-size: 1.4em;
+    font-weight: 500;
+    padding: 0.4em 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+  }
+  .toc-list li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: 0.55em;
+    color: var(--accent);
+    margin-right: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    min-width: 2.5em;
+  }
+  .toc-list li .arc {
+    margin-left: 1em;
+    color: var(--muted);
+    font-size: 0.6em;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .lineage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em 3em;
+    margin-top: 1em;
+  }
+  .lineage {
+    border-top: 3px solid var(--rule);
+    padding-top: 0.7em;
+  }
+  .lineage h4 {
     font-size: 0.6em;
     text-transform: uppercase;
     letter-spacing: 0.18em;
     color: var(--accent);
-    margin-bottom: 1.2em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
   }
-  .chapter-no {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.55em;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    color: var(--muted);
-    margin-bottom: 0.8em;
+  .lineage p {
+    font-size: 0.85em;
+    line-height: 1.4;
+    margin: 0;
   }
-  .subtitle {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--muted);
-    font-size: 1.1em;
-    margin-top: 0.4em;
+  .lineage.last h4 { color: var(--accent2); }
+
+  .ostrom-list {
+    columns: 2;
+    column-gap: 3em;
+    font-size: 1em;
+    line-height: 1.65;
+    margin: 0.8em 0;
+    padding-left: 1.4em;
+    font-weight: 500;
   }
-  .credit {
-    position: absolute;
-    bottom: 3vh;
-    left: 4vw;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.5em;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--muted);
+  .ostrom-list li { break-inside: avoid; }
+
+  .equation {
+    font-size: 2em;
+    text-align: center;
+    margin: 1em 0;
+    padding: 0.8em 0.4em;
+    background: var(--cream);
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
+  .equation .plus { color: var(--accent); font-weight: 700; }
+  .equation .int { color: var(--accent); }
+  .equation .ext { color: var(--accent2); }
+
   .twocol {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3vw;
+    gap: 4vw;
     align-items: start;
   }
   .twocol h4 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65em;
+    font-size: 0.6em;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     color: var(--accent);
     margin-bottom: 0.6em;
+    font-weight: 600;
   }
-  .twocol.green h4:last-of-type { color: var(--accent2); }
+  .twocol .col-b h4 { color: var(--accent2); }
+  .twocol blockquote.bq { font-size: 1.15em; }
+
   .politico-frame {
     display: grid;
-    grid-template-columns: 0.95fr 1fr;
-    gap: 3vw;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4vw;
     align-items: center;
-    height: 80vh;
   }
   .politico-frame img {
     width: 100%;
     height: auto;
-    max-height: 80vh;
+    max-height: 78vh;
     object-fit: contain;
     border: 1px solid var(--rule);
   }
-  .politico-source {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.55em;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.6em;
-  }
-  .politico-headline {
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 1.3em;
-    line-height: 1.1;
-    margin-bottom: 0.6em;
-  }
-  .politico-frag {
-    border-left: 3px solid var(--accent);
-    padding-left: 0.8em;
-    margin: 0.7em 0;
-    font-size: 0.85em;
-    line-height: 1.35;
-  }
-  .politico-frag.muted { border-left-color: var(--muted); color: var(--muted); }
-  .pat-grace-q {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    color: var(--accent2);
-    font-size: 1em;
-    margin: 0.4em 0 0.3em 0;
-    padding-left: 1em;
-    border-left: 3px solid var(--accent2);
-  }
-  .pat-grace-a {
-    font-family: 'Fraunces', serif;
-    color: var(--ink);
-    font-size: 1em;
-    margin: 0.3em 0 0.8em 0;
-    padding-left: 1em;
-    border-left: 3px solid var(--accent);
-  }
-  .pat-grace-q .who, .pat-grace-a .who {
-    display: block;
-    font-family: 'JetBrains Mono', monospace;
-    font-style: normal;
-    font-size: 0.55em;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.25em;
-  }
-  .pat-grace-q .who { color: var(--accent2); }
-  .pat-grace-a .who { color: var(--accent); }
-  .editorial {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7em;
-    color: var(--muted);
-    font-style: normal;
-    border-left: 2px dotted var(--muted);
-    padding-left: 0.8em;
-    margin: 0.5em 0 0.8em 0;
-  }
-  .lineage-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2em 2em;
-    margin-top: 0.6em;
-  }
-  .lineage {
-    border-top: 2px solid var(--rule);
-    padding-top: 0.6em;
-  }
-  .lineage h4 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.55em;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--accent);
-    margin-bottom: 0.4em;
-  }
-  .lineage p {
-    font-size: 0.78em;
-    line-height: 1.4;
-  }
-  .pull {
-    font-family: 'Fraunces', serif;
-    font-size: 1.5em;
-    line-height: 1.15;
-    color: var(--ink);
-  }
-  .pull .accent { color: var(--accent); }
-  .pull .accent2 { color: var(--accent2); }
-  .small { font-size: 0.75em; color: var(--muted); }
-  .ostrom-list {
-    columns: 2;
-    column-gap: 2.5em;
-    font-size: 0.85em;
-    line-height: 1.5;
-    margin: 0.6em 0;
-    padding-left: 1.2em;
-  }
-  .ostrom-list li { break-inside: avoid; }
-  .equation {
-    font-family: 'Fraunces', serif;
-    font-size: 1.6em;
-    text-align: center;
-    margin: 0.8em 0;
-    padding: 0.5em;
-    background: var(--cream);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  .equation .plus { color: var(--accent); }
+
   .reveal .progress { color: var(--accent); height: 4px; }
   .reveal .controls { color: var(--muted); }
-  /* fragment styling */
-  .reveal .fragment.fade-up { transform: translateY(15px); }
-  .reveal .fragment.fade-up.visible { transform: translateY(0); }
+
   .footer {
     position: absolute;
-    bottom: 1.4vh;
+    bottom: 1.6vh;
     right: 2vw;
-    font-family: 'JetBrains Mono', monospace;
     font-size: 0.45em;
     color: var(--muted);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-  .four-claims {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em 2em;
-    margin-top: 0.5em;
-  }
-  .claim {
-    border-left: 3px solid var(--accent);
-    padding: 0.4em 0 0.4em 1em;
-  }
-  .claim .n {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.5em;
     letter-spacing: 0.2em;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 0.3em;
+    text-transform: uppercase;
+    font-weight: 500;
   }
-  .claim p { font-size: 0.85em; line-height: 1.35; margin: 0; }
+
+  .dark { background: var(--ink) !important; }
+  .dark h1, .dark h2, .dark p, .dark .pull { color: var(--paper); }
+  .dark .kicker { color: var(--gold); }
+  .dark .subtitle { color: var(--cream); }
+  .dark .sources { color: var(--cream); }
+  .dark .sources strong { color: var(--paper); }
+  .dark blockquote.bq { color: var(--paper); }
+
+  .questions {
+    font-size: 1.1em;
+    line-height: 1.55;
+    font-weight: 500;
+    margin-top: 1.2em;
+    padding-left: 0;
+    list-style: none;
+  }
+  .questions li {
+    padding: 0.5em 0 0.5em 1.4em;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+  }
+  .questions li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
 </style>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
 
-<!-- 1. TITLE -->
+<!-- 1. TITLE (new front page per user) -->
 <section data-transition="fade">
-  <div class="chapter-no">Chapter 8 &middot; Mamdani Book Project</div>
-  <h1>Co-Governing<br>and Pothole Politics</h1>
-  <p class="subtitle">What happens next, and what travels?</p>
-  <p class="small" style="margin-top:3em">Elizabeth McKenna &middot; Patrick Hunter</p>
-  <p class="small">Working session &middot; 2026-05-15</p>
-</section>
-
-<!-- 2. POLITICO OPENER (image + fragmented excerpts) -->
-<section data-transition="fade">
-  <div class="kicker">Cold open &middot; Politico, ~ Day 100</div>
-  <div class="politico-frame">
-    <img src="img/politico.png" alt="Politico — Mamdani Office of Mass Engagement, Tascha Van Auken">
-    <div>
-      <div class="politico-source">Politico New York</div>
-      <div class="politico-headline">A scale model of the campaign &mdash; inside City Hall.</div>
-      <div class="politico-frag fragment fade-up">"Freshly elected New York City mayors often hire from their campaign. They usually don't build a <strong>scale model of it inside City Hall</strong>."</div>
-      <div class="politico-frag fragment fade-up">Mamdani's Office of Mass Engagement is "a striking facsimile of the crack team of operatives and ground-game field marshals who propelled him to victory."</div>
-      <div class="politico-frag fragment fade-up">A canvassing playbook "honed by DSA, perfected by 140,000 loyal foot soldiers, and now <strong>underwritten by taxpayers</strong>."</div>
-      <div class="politico-frag muted fragment fade-up">"Is it about the issue or is it about the person, the candidate?" &mdash; John Kaehny, Reinvent Albany</div>
-    </div>
+  <div class="kicker">Chapter 8 · Mamdani Book Project</div>
+  <h1>Co-Governing<br>and Pothole Politics.</h1>
+  <p class="subtitle">Draft notes — Elizabeth McKenna &amp; Patrick Hunter</p>
+  <div class="sources">
+    <strong>Sources</strong>
+    Zainab Azim interviews (Andrew Epstein, Cea Weaver, Elle Bisgaard-Church, Katie Riley, Tascha Van Auken, Zara Rahim); Patrick Hunter interview with Grace, NYC-DSA co-chair; NYC-DSA post-election call (Michael Lang, Tascha Van Auken, Jamal Bowman, Arielle); Politico NY (Day 100 coverage); mamdani-endorsements.
   </div>
-  <div class="footer">Slide 02</div>
 </section>
 
-<!-- 2b. POLITICO — TASCHA QUOTE + THE CRITIQUE -->
+<!-- 2. TOC -->
 <section data-transition="fade">
-  <div class="kicker">Politico, continued</div>
-  <div style="max-width:84%">
-    <blockquote class="green">
-      "This administration entered office with the belief that government should belong to the people it serves, not just the powerful and well-connected. Our work at the Mayor's Office of Mass Engagement is about <strong>making that belief real</strong> by bringing more New Yorkers into the work of governance and ensuring working people have a meaningful voice in the decisions being made at City Hall."
-      <span class="speaker">&mdash; Tascha Van Auken, Commissioner, Mayor's Office of Mass Engagement</span>
-    </blockquote>
-    <blockquote class="fragment fade-up">
-      "They've trained, harnessed and are now keeping alive this army of organized people. That group is now ready, on a moment's notice, to be turned onto the campaign side. <strong>It's not illegal, but it raises concerns about the ethical use of government resources.</strong>"
-      <span class="speaker">&mdash; anonymous Democratic strategist, to Politico</span>
-    </blockquote>
-    <p class="fragment fade-up small" style="margin-top:1.2em">
-      The Politico framing names the puzzle the chapter is about: <em>movement infrastructure repurposed for government</em> — promise, threat, and the unanswered question of what's actually happening.
-    </p>
-  </div>
-  <div class="footer">Slide 03</div>
-</section>
-
-<!-- 3. THE CHAPTER'S QUESTION -->
-<section data-transition="fade">
-  <div class="kicker">The chapter's question</div>
-  <h2>Winning an election through organizing is one achievement.<br><span style="color:var(--accent)">Governing through it is another.</span></h2>
-  <p class="fragment fade-up" style="margin-top:1.4em; font-size:1.05em">Can the relational infrastructure that carried the campaign — volunteer networks, coalition partnerships, leadership structures — <em>be repurposed to govern?</em></p>
-  <p class="fragment fade-up" style="font-size:1.05em">What is gained, and what is lost, in the translation?</p>
-  <p class="fragment fade-up small" style="margin-top:1.8em">Pothole politics names the test: does the model survive contact with the most ordinary, granular work of municipal government?</p>
-  <div class="footer">Slide 04</div>
-</section>
-
-<!-- 4. WHAT THE CHAPTER ARGUES (preview) -->
-<section data-transition="fade">
-  <div class="kicker">Argument, in advance</div>
-  <h3>Where we'll land</h3>
-  <p class="pull">The Mamdani case suggests <span class="accent">co-governance</span> is a <span class="accent2">prior-conditions problem</span> — not a relationship problem.</p>
-  <p class="fragment fade-up" style="margin-top:1.4em">Inside-outside structure can be built fast (the Hochul rupture shows this).<br>But it bears weight <em>only</em> where the outside party is internally constituted to act.</p>
-  <p class="fragment fade-up small" style="margin-top:1.2em">The lit review will name that prior condition by reading <strong>Ostrom alongside Tarlau and Engler</strong>.</p>
-  <div class="footer">Slide 05</div>
-</section>
-
-<!-- =========== PATRICK + GRACE WALKTHROUGH (multi-slide) =========== -->
-
-<section data-transition="fade">
-  <div class="kicker">Case in chapter &middot; The Hochul endorsement</div>
-  <h2>The rupture that built the structure</h2>
-  <p class="subtitle">Patrick Hunter in conversation with Grace, NYC-DSA co-chair</p>
-  <p class="fragment fade-up small" style="margin-top:1.4em">In January 2026, Mayor Mamdani endorses Governor Hochul as part of a deal on childcare rollout. DSA finds out a day or two before. The base — and the people negotiating with the administration on its behalf — feel blindsided.</p>
-  <p class="fragment fade-up small">What follows is, on its face, a near-censure. What it actually produces is a permanent inside-outside meeting structure that did not exist before.</p>
-  <div class="footer">Slide 06</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Hochul rupture &middot; 1 / 5</div>
-  <h3>How it landed</h3>
-  <div class="pat-grace-q fragment fade-up">
-    <span class="who">Patrick</span>
-    Can you think of a challenge you were facing within the organization, and a choice that you made to deal with that challenge?
-  </div>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    When Zohran endorsed Hochul, it was really annoying. They gave us a couple — maybe a day or two — a heads up, but not enough for us to change any strategy or shift a narrative.
-  </div>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace, continued</span>
-    We had been building this campaign to tax the rich. Initially it was tax the rich to fund childcare. But he reached a deal with Hochul that evidently included him endorsing her. The administration wanted to frame that as a victory. The childcare campaign did not feel like it was a big enough step to really call it a victory.
-  </div>
-  <div class="footer">Slide 07</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Hochul rupture &middot; 2 / 5</div>
-  <h3>The pivot</h3>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    We also didn't want to be campaigning against Hochul and then have the Zohran endorsement hit. So we kind of pivoted there. We ended up dropping the childcare frame — now it's just tax the rich.
-  </div>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    But the target of the campaign had always been Hochul, and then Zohran tells us he's endorsing Hochul.
-  </div>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    This was in the midst of the NYSNA strike, where she had been issuing executive orders enabling hospitals to hire scabs more easily.
-  </div>
-  <p class="editorial fragment fade-up">The endorsement isn't a free-standing political choice. It collides with two live campaigns the base is already running. The cost to the inside-outside relationship isn't abstract.</p>
-  <div class="footer">Slide 08</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Hochul rupture &middot; 3 / 5</div>
-  <h3>The statement</h3>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    Steering committee had an emergency meeting to discuss. We wrote a statement that was basically almost a censure of Zohran. I kind of think formal censuring is a little fuddy-duddy, but it was a statement that was basically: <em>Zohran made a mistake.</em>
-  </div>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    As a courtesy, we sent that to the administration before we put it out, and they called us and asked us to edit it a bit.
-  </div>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    It was a tense discussion, but we did end up changing the statement to be less critical of Zohran and to just say, DSA does not endorse Hochul, Hochul is bad in these ways, she needs to tax the rich.
-  </div>
-  <div class="footer">Slide 09</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Hochul rupture &middot; 4 / 5</div>
-  <h3>Trust held, but trust wasn't enough</h3>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    One thing that demonstrates Zohran and his core team's commitment to DSA is that they weren't just like, "Well, fuck you guys." That sucked — that was a moment — because we trust each other. They knew we're not going to send out statements or censure him or critique him willy-nilly; they took that very seriously.
-  </div>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    And that's when we started having regular meetings, not only with senior administrative officials, which we do every week now, but also with Zohran himself. We meet every other week.
-  </div>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    I sat down with Elle, and she was like, "Okay, something is not working. The kind of inside-outside communication is not effective. We need to fix this."
-  </div>
-  <div class="footer">Slide 10</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Hochul rupture &middot; 5 / 5</div>
-  <h3>What Grace told Elle</h3>
-  <div class="pat-grace-a fragment fade-up">
-    <span class="who">Grace</span>
-    Elle or Zohran or someone made a comment implying that there was no world in which we would have agreed that he should endorse Hochul. And I said,
-  </div>
-  <blockquote class="green fragment fade-up" style="font-size:1.2em">
-    "There may not have been, but you also didn't explain your thinking to us. That's part of what has to happen too. Maybe we end up disagreeing, but we never knew what the trade-offs or the strategy or thinking was until you just told us what the decision was."
-    <span class="speaker">&mdash; Grace to Elle, after the Hochul endorsement</span>
-  </blockquote>
-  <p class="editorial fragment fade-up">The deficit isn't trust. The deficit is structure for shared deliberation <em>before</em> a decision is final.</p>
-  <div class="footer">Slide 11</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Hochul rupture &middot; the punchline</div>
-  <div style="max-width:80%">
-    <blockquote class="green fragment fade-up" style="font-size:1.5em; font-style:italic; padding-left:1.2em">
-      "The trust is there, but the trust is not enough without structure. And we need creativity to figure out what the structure should be."
-      <span class="speaker">&mdash; Grace, NYC-DSA co-chair</span>
-    </blockquote>
-    <blockquote class="fragment fade-up" style="margin-top:1.4em">
-      "These are avenues to try to figure out a solution before you resort to public condemnation or disagreement."
-      <span class="speaker">&mdash; Grace, on the new biweekly meetings</span>
-    </blockquote>
-    <blockquote class="gold fragment fade-up">
-      "There are no mechanisms for [inside-outside] to exist — we have to create them."
-      <span class="speaker">&mdash; Grace</span>
-    </blockquote>
-  </div>
-  <div class="footer">Slide 12</div>
-</section>
-
-<!-- =========== ELLE — THE INSIDE VIEW =========== -->
-
-<section data-transition="fade">
-  <div class="kicker">Elle Bisgaard-Church &middot; Chief of Staff</div>
-  <h2>"You didn't need the establishment to get there."</h2>
-  <p class="subtitle">Elle, with Zainab Azim, on the difficulty of governing as the new establishment</p>
-  <p class="fragment fade-up small" style="margin-top:1.2em">Elle managed the campaign and now runs the office. Her honest description of the transition is one of the most useful texts the project has.</p>
-  <div class="footer">Slide 13</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Elle &middot; 1 / 3</div>
-  <h3>The mandate she carries into government</h3>
-  <blockquote class="green fragment fade-up" style="font-size:1.15em">
-    "We are part of a broader left movement, especially having been driven by New York City DSA, but other important member organizations who understand that <strong>government in the state is but one element of how people are free in our society.</strong>"
-    <span class="speaker">&mdash; Elle Bisgaard-Church</span>
-  </blockquote>
-  <blockquote class="fragment fade-up">
-    "Being able to mobilize people, and the field program really teaching skills of organizing... is a way to then create tenant organizers, people who will go form a union in their workplace — all of these things that are in addition to how government should actually respond and reflect people's interests."
-    <span class="speaker">&mdash; Elle</span>
-  </blockquote>
-  <p class="editorial fragment fade-up">She is articulating the chapter's animating premise from the inside: <em>the movement is bigger than the seat</em>, and the seat is one of its instruments.</p>
-  <div class="footer">Slide 14</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Elle &middot; 2 / 3</div>
-  <h3>The translation problem, in her words</h3>
-  <blockquote class="fragment fade-up">
-    "It's kind of hard to be — you're not in an enduring institutional setting. You're not doing one on ones, where you do 360 feedback. There's that kind of world of stuff. I feel like I've had some growth through all of that, and <strong>I'm very happy to be back in government, frankly, where I get to design things a little more sustainably now</strong>."
-    <span class="speaker">&mdash; Elle, on the campaign-to-government transition</span>
-  </blockquote>
-  <blockquote class="green fragment fade-up">
-    "It's hard to tell sometimes — you've been the anti-establishment, now you're the establishment, but <strong>you didn't need the establishment to get there</strong>. And these tensions... does it matter that Greg Meeks is upset? There's a lot of noise."
-    <span class="speaker">&mdash; Elle</span>
-  </blockquote>
-  <div class="footer">Slide 15</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Elle &middot; 3 / 3</div>
-  <h3>Prefiguring, in office</h3>
-  <p class="small">On primary night, Mamdani said the campaign sought, every day, to "embody the values of a better world and make these values true by our actions." Asked what that looked like in practice, Elle returned to a single canvass story:</p>
-  <blockquote class="green fragment fade-up">
-    "One of my favorite stories was a field lead who knocked on someone's apartment door and began their script and at some point was like, 'wow, that dinner smells amazing.' And they got invited in, and they had dinner with this random family that they were canvassing."
-    <span class="speaker">&mdash; Elle</span>
-  </blockquote>
-  <blockquote class="fragment fade-up">
-    "How we won is not separate from the winning... We were only a vessel for the things that we really believed and had heard over years."
-    <span class="speaker">&mdash; Elle</span>
-  </blockquote>
-  <p class="editorial fragment fade-up">The prefigurative claim becomes a governance question: can the office hold that texture, or does it dissolve in the work of running a city?</p>
-  <div class="footer">Slide 16</div>
-</section>
-
-<!-- =========== THE OBAMA GHOST =========== -->
-
-<section data-transition="fade">
-  <div class="kicker">The Obama ghost</div>
-  <h2>Why this story has been told before, and ended badly.</h2>
-  <p class="subtitle">Two voices, one warning</p>
-  <div class="twocol green" style="margin-top:1.4em">
-    <div class="fragment fade-up">
-      <h4>Andrew Epstein, Director of Communications</h4>
-      <blockquote>
-        "I was so far left at that point that I totally was not even on the Obama train. He's hiring all these neoliberal economic people. He's not actually committing to change how the U.S. Empire operates... the failures and shortcomings of that administration, and then the waves of hope and disappointment — <strong>in many ways, our campaign is still in a related cycle.</strong>"
-      </blockquote>
-    </div>
-    <div class="fragment fade-up">
-      <h4>Elle Bisgaard-Church, Chief of Staff</h4>
-      <blockquote class="green">
-        "You've been the anti-establishment, now you're the establishment, but you didn't need the establishment to get there. And these tensions... we're experiencing this <strong>while governing</strong>."
-      </blockquote>
-    </div>
-  </div>
-  <p class="editorial fragment fade-up" style="margin-top:0.8em">The chapter cannot treat the Mamdani case as the first time. It is the latest iteration of a cycle, and its operators know it.</p>
-  <div class="footer">Slide 17</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">The Obama ghost &middot; the structural lesson</div>
-  <h3>What Tascha took from 2008</h3>
-  <blockquote class="fragment fade-up">
-    "Two years after the Obama campaign, I went to Pennsylvania because someone I knew managed a Senate race in the same community. The candidate that all volunteers were supporting was not the same candidate Obama was supporting. <strong>Community did all the work to get Obama elected but had no control over the product of the work</strong> — data, contacts, volunteer lists. He took control. They started from scratch. That stuck with her."
-    <span class="speaker">&mdash; Tascha Van Auken (interview notes, with Zainab)</span>
-  </blockquote>
-  <blockquote class="green fragment fade-up">
-    "Learning from Bernie: you need an organization that lasts before and beyond. Organizations last; candidates cannot hold all of that. When someone is in office, <strong>you need outside organizing</strong>."
-    <span class="speaker">&mdash; Tascha</span>
-  </blockquote>
-  <div class="footer">Slide 18</div>
-</section>
-
-<!-- =========== CEA — PIVOT TO THE COLLECTIVE PROJECT =========== -->
-
-<section data-transition="fade">
-  <div class="kicker">Cea Weaver &middot; Director, Mayor's Office to Protect Tenants</div>
-  <h2>"Pivot away from the guy, toward the collective project."</h2>
-  <p class="subtitle">Tenant organizer, Housing Justice for All ED, DSA member &mdash; now inside the administration</p>
-  <p class="fragment fade-up small" style="margin-top:1.2em">Cea is the chapter's most useful informant on what a movement office <em>does</em>: she helped write Mamdani's housing platform across two campaigns and now runs the tenant-protection office for the city.</p>
-  <div class="footer">Slide 19</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Cea &middot; concrete handles for co-governance</div>
-  <h3>The mobilization-to-governance translation, specified</h3>
-  <blockquote class="green fragment fade-up">
-    "It's really about pivoting away from the guy and towards the collective project."
-  </blockquote>
-  <blockquote class="fragment fade-up">
-    "Zohran can say to his people: I need your help to govern this city. The way you can help is by getting on your community board and helping me build 200,000 units of affordable housing... <strong>I cannot do it without you.</strong>"
-  </blockquote>
-  <blockquote class="fragment fade-up">
-    "I want people on the community board. I want people on the Rent Board. I want the tenant entities to train people to form tenant associations in their buildings. Tenant associations as <strong>sites of resistance</strong> — against ICE collaboration with landlords, for one."
-  </blockquote>
-  <p class="editorial fragment fade-up">Co-governance, in Cea's account, is a portfolio of <em>institutional handles</em>: community boards, the Rent Guidelines Board, tenant associations. Not a vibe — a set of seats.</p>
-  <div class="footer">Slide 20</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Cea &middot; the binding constraint</div>
-  <h3>"We have to deliver."</h3>
-  <blockquote class="green fragment fade-up" style="font-size:1.15em">
-    "He's not going to succeed if it lives and dies with him. We have to deliver to make people believe. <strong>Part of the project is rebuilding belief in government.</strong> Continually giving people proactive things to do, delivering on the agenda, and maintaining his popularity."
-  </blockquote>
-  <blockquote class="fragment fade-up">
-    "That 17,000 is more interesting to me than the 80,000. <strong>That's where you're building the power.</strong>"
-    <span class="speaker">&mdash; Cea, on the 17,000 repeat volunteers vs. the 80,000 total</span>
-  </blockquote>
-  <div class="footer">Slide 21</div>
-</section>
-
-<!-- =========== TAX THE RICH AS THE FIRST CO-GOV TEST =========== -->
-
-<section data-transition="fade" data-background-color="#1e5b4d" data-background-transition="fade">
-  <div class="kicker" style="color:#e8d8a6">Section break</div>
-  <h1 style="color:#f6f1ea">Tax the Rich.</h1>
-  <p class="subtitle" style="color:#e8d8a6">The first co-governance test &mdash; running right now.</p>
-  <div class="footer" style="color:#a08c5c">Slide 22</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Tax the rich &middot; the test, named</div>
-  <h3>Why this campaign matters more than its dollar number</h3>
-  <p class="fragment fade-up">It is the <strong>first sustained co-gov campaign</strong> after Election Day:</p>
-  <ul style="font-size:0.9em; line-height:1.5; margin-top:0.6em">
-    <li class="fragment fade-up">Run by DSA, not by the administration.</li>
-    <li class="fragment fade-up">Targeting Hochul (Albany), <em>not</em> the mayor.</li>
-    <li class="fragment fade-up">Six-month window to the April budget cycle.</li>
-    <li class="fragment fade-up">Originally yoked to childcare; pivoted after the Hochul endorsement.</li>
-    <li class="fragment fade-up">Mamdani's attendance at the first rally is <em>itself</em> a co-governance signal.</li>
-  </ul>
-  <p class="editorial fragment fade-up">The press hunger for an inside-outside <em>split</em> is the asymmetry the chapter has to name.</p>
-  <div class="footer">Slide 23</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Tax the rich &middot; the operative pressure</div>
-  <h3>Arielle (NYC-DSA Campaign Coordinator)</h3>
-  <blockquote class="green fragment fade-up">
-    "People say this all the time after campaigns, but they do not always mean it. We mean it: <strong>the fight is not over.</strong> Now we're at the moment where we have to deliver."
-  </blockquote>
-  <blockquote class="fragment fade-up">
-    "Trump is gutting the federal government and cutting off funding to the states. But we can stand up to Trump and implement Zohran's agenda at the state level by taxing the rich. We have what we need to ensure a dignified life for everyone."
-  </blockquote>
-  <blockquote class="gold fragment fade-up">
-    "We can keep the good vibes and the canvass vibes from the Zohran campaign going... <strong>we will do this together as socialists, as DSA.</strong>"
-  </blockquote>
-  <div class="footer">Slide 24</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Tax the rich &middot; Grace, on the press asymmetry</div>
-  <h3>Why this is harder than it looks from outside</h3>
-  <blockquote class="green fragment fade-up">
-    "The reason we have to be so careful is the media wants the split narrative. The New York Times — we pitched them. We knew Zohran committed to the first rally, but he asked for me to come. The article was a significant splash, but <strong>they're always looking for moments where DSA, or the broader left, and Zohran are out of step</strong>, because they want to weaken both him and us."
-    <span class="speaker">&mdash; Grace</span>
-  </blockquote>
-  <p class="editorial fragment fade-up">Co-governance is performed in public. The press incentive is to read every difference as a split. The inside-outside structure has to absorb that pressure without producing the split it predicts.</p>
-  <div class="footer">Slide 25</div>
-</section>
-
-<!-- =========== MICHAEL LANG ON DINKINS =========== -->
-
-<section data-transition="fade">
-  <div class="kicker">Comparative warning &middot; Michael Lang, post-election DSA call</div>
-  <h2>"Strong, but also fragile."</h2>
-  <blockquote class="fragment fade-up" style="margin-top:1em">
-    "David Dinkins famously had the Rainbow Coalition — very rooted in labor, in Black and Hispanic outer-borough neighborhoods, in working, middle, and upper-middle-class renters. What Zohran accomplished is the next modern-day iteration of that coalition."
-  </blockquote>
-  <blockquote class="green fragment fade-up">
-    "Dinkins won in 1989 under a relatively similar set of circumstances — a Democratic constituency facing a very reactionary and polarizing backlash. <strong>Dinkins four years later ran in a rematch with Giuliani with almost the same coalition and lost very narrowly.</strong> The forces that tried to stop Zohran are never going to stop organizing. This coalition, beautiful as it is, is strong but also fragile."
-  </blockquote>
-  <p class="editorial fragment fade-up">The implicit thesis: a winning coalition is not the same thing as a governing coalition. The conditions that produced one will not, on their own, sustain the other.</p>
-  <div class="footer">Slide 26</div>
-</section>
-
-<!-- =========== LIT REVIEW =========== -->
-
-<section data-transition="fade" data-background-color="#1a1614">
-  <div class="kicker" style="color:#e8d8a6">Lit review</div>
-  <h1 style="color:#f6f1ea">Reading the case<br>against the literature.</h1>
-  <p class="subtitle" style="color:#a08c5c">Four lineages, one synthesis, one scope condition</p>
-  <div class="footer" style="color:#6b6157">Slide 27</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Lit review &middot; 1 / 3</div>
-  <h2>Co-governance has four distinct lineages</h2>
-  <div class="lineage-grid">
-    <div class="lineage fragment fade-up">
-      <h4>1 &middot; Indigenous–state co-governance</h4>
-      <p>Aotearoa, Canada: formal Crown–Iwi authority over natural resources (Mutu; Three Waters).</p>
-    </div>
-    <div class="lineage fragment fade-up">
-      <h4>2 &middot; Collaborative governance</h4>
-      <p>Ansell &amp; Gash 2008; Emerson, Nabatchi &amp; Balogh 2012. Public agencies + stakeholders, consensus-oriented, technocratic.</p>
-    </div>
-    <div class="lineage fragment fade-up">
-      <h4>3 &middot; Participatory democracy</h4>
-      <p>Ostrom 1990; Porto Alegre PB (1989–). Institutionalized citizen authority over municipal decisions. Cautionary tale: PB suspended in Porto Alegre 2017 after PT lost locally.</p>
-    </div>
-    <div class="lineage fragment fade-up">
-      <h4>4 &middot; Movement–elected official partnership</h4>
-      <p>Engler &amp; Engler 2022; <em>The Forge</em>. Durable relationships between grassroots organizations and movement candidates after they win office.</p>
-    </div>
-  </div>
-  <p class="editorial fragment fade-up" style="margin-top:1em">U.S. organizers borrow vocabulary from all four. They mostly mean the fourth. The fourth is the <strong>most undertheorized</strong> — and the conditions it presumes are exactly the ones the others address more directly.</p>
-  <div class="footer">Slide 28</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Lit review &middot; 2 / 3 &middot; Tarlau</div>
-  <h2>Contentious co-governance: closest fit, and its scope condition</h2>
-  <p class="fragment fade-up">
-    <strong>Tarlau (2019, 2021):</strong> movements are most effective when they combine <em>disruption with institutional pressure</em> — simultaneously, not sequentially. Co-governance is contentious by design: with the state, <em>and</em> with allies inside the institutions.
-  </p>
-  <p class="fragment fade-up small" style="margin-top:0.6em">This frame fits the Mamdani–DSA case in its first 100 days: Hochul endorsement → near-censure → biweekly structural meetings.</p>
-  <blockquote class="green fragment fade-up" style="margin-top:0.8em">
-    But the frame has a scope condition Tarlau leaves implicit:<br>
-    <strong>Contention only produces concessions where the base behind it is strong enough to make it costly to ignore.</strong>
-  </blockquote>
-  <p class="fragment fade-up small">She identifies <em>how</em> an organized base engages the state. She does not theorize <em>the conditions under which a base is strong enough to engage at all.</em></p>
-  <div class="footer">Slide 29</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Lit review &middot; 2 / 3 continued &middot; the MST stress test</div>
-  <h3>The empirical case Tarlau builds from is sobering</h3>
-  <p class="fragment fade-up">The MST (Brazil) at ~40 years and ~1.5–2 million members remains organizationally robust but politically constrained.</p>
-  <p class="fragment fade-up small" style="margin-top:0.6em">Agrarian reform settlements have collapsed from ~45,000 families/year under Cardoso and Lula I to <strong>fewer than 4,000 actually settled under Lula III</strong> — despite an allied government.</p>
-  <blockquote class="gold fragment fade-up">
-    In July 2025, the MST published an open letter to Brazilian society:<br><em>"Lula, where is the Agrarian Reform?"</em>
-  </blockquote>
-  <p class="editorial fragment fade-up">Contentious co-governance with an ally, producing diminishing returns. The variable Tarlau leaves implicit is the one Ostrom actually theorized.</p>
-  <div class="footer">Slide 30</div>
-</section>
-
-<section data-transition="fade">
-  <div class="kicker">Lit review &middot; 3 / 3 &middot; Ostrom, read properly</div>
-  <h2>The eight design principles describe the <em>prior condition</em></h2>
-  <p class="small fragment fade-up">The standard misreading invokes Ostrom as inspiration — "local communities can govern commons!" — and drops her. The actual contribution is <em>conditions for sustained collective action</em>.</p>
-  <ol class="ostrom-list" style="margin-top:0.6em">
-    <li class="fragment fade-up">Clear boundaries</li>
-    <li class="fragment fade-up">Rules matched to local conditions</li>
-    <li class="fragment fade-up">Collective-choice arenas</li>
-    <li class="fragment fade-up">Monitoring</li>
-    <li class="fragment fade-up">Graduated sanctions</li>
-    <li class="fragment fade-up">Low-cost conflict resolution</li>
-    <li class="fragment fade-up">Recognized right to organize</li>
-    <li class="fragment fade-up">Nested enterprises</li>
+  <div class="kicker">What we'll cover</div>
+  <ol class="toc-list">
+    <li>The question <span class="arc">winning vs governing</span></li>
+    <li>Lit review <span class="arc">four lineages, one synthesis</span></li>
+    <li>The thesis <span class="arc">co-governance = Ostrom + Tarlau</span></li>
+    <li>The Politico framing <span class="arc">day 100</span></li>
+    <li>The Hochul rupture <span class="arc">Patrick × Grace</span></li>
+    <li>Elle, on the transition <span class="arc">anti-establishment → establishment</span></li>
+    <li>Cea, on the collective project <span class="arc">institutional handles</span></li>
+    <li>Tax the rich <span class="arc">first co-gov test</span></li>
+    <li>Dinkins, as warning <span class="arc">strong but fragile</span></li>
+    <li>What we cannot yet resolve</li>
   </ol>
-  <p class="editorial fragment fade-up">A note on the translation: Ostrom writes about common-pool resources — irrigation, fisheries, forests — not movements. The application is analogical. But an organized base <em>is</em> structurally a commons: trust, attention, and capacity that members can deplete or steward; vulnerable to free-riding; requiring governance rules to sustain.</p>
-  <div class="footer">Slide 31</div>
 </section>
 
+<!-- 3. THE QUESTION -->
 <section data-transition="fade">
-  <div class="kicker">Synthesis</div>
-  <h2>What co-governance actually requires</h2>
-  <div style="margin-top:0.8em">
-    <p class="fragment fade-up"><strong>Engler:</strong> <em>that</em> movements should co-govern.</p>
-    <p class="fragment fade-up"><strong>Tarlau:</strong> <em>how</em> an organized base engages the state — dual-track contention.</p>
-    <p class="fragment fade-up"><strong>Ostrom:</strong> <em>what</em> an organized base has to be for that engagement to bear weight.</p>
-  </div>
-  <div class="equation fragment fade-up">
-    Co-governance <span class="plus">=</span> Ostrom conditions <span style="color:var(--accent)">(internal)</span> <span class="plus">+</span> Tarlau strategy <span style="color:var(--accent2)">(external)</span>
-  </div>
-  <p class="pull fragment fade-up" style="margin-top:0.6em; font-size:1.2em">People-first politics travels <span class="accent">not</span> because of charisma or social media, but where Ostrom conditions are met in the meso-level base.</p>
-  <p class="pull fragment fade-up" style="font-size:1.2em">Where they aren't, you get the <span class="accent2">appearance</span> of co-governance without the substance.</p>
-  <div class="footer">Slide 32</div>
+  <div class="kicker">01 · The chapter's question</div>
+  <h2 style="font-size:3.2em">Winning an election through organizing<br>is one achievement.</h2>
+  <p class="pull fragment fade-up" style="color:var(--accent); margin-top:0.4em">Governing through it is another.</p>
 </section>
 
-<!-- =========== THE FOUR CLAIMS / WHAT TRAVELS =========== -->
-
+<!-- 4. LIT — FOUR LINEAGES -->
 <section data-transition="fade">
-  <div class="kicker">What the case is a case of</div>
-  <h2>Four interlocking claims, restated through the lit</h2>
-  <div class="four-claims">
-    <div class="claim fragment fade-up">
-      <span class="n">01</span>
-      <p>Mass participation rebuilt under conditions of institutional decline.</p>
+  <div class="kicker">02 · Lit review · 1 of 3</div>
+  <h2>Co-governance has four lineages.</h2>
+  <div class="lineage-grid">
+    <div class="lineage">
+      <h4>1 · Indigenous–state</h4>
+      <p>Aotearoa, Canada. Formal Crown–Iwi authority over natural resources.</p>
     </div>
-    <div class="claim fragment fade-up">
-      <span class="n">02</span>
-      <p>Relational politics at scale — organized by narrative, structure, and real relationships across a diverse metropolis rather than ideological alignment or identity.</p>
+    <div class="lineage">
+      <h4>2 · Collaborative governance</h4>
+      <p>Ansell &amp; Gash 2008. Agencies + stakeholders, consensus-oriented, technocratic.</p>
     </div>
-    <div class="claim fragment fade-up">
-      <span class="n">03</span>
-      <p>Movement–electoral fusion: organizing, public narrative, and electoral strategy integrated into a single coherent structure.</p>
+    <div class="lineage">
+      <h4>3 · Participatory democracy</h4>
+      <p>Ostrom 1990; Porto Alegre PB (suspended 2017 after PT lost locally).</p>
     </div>
-    <div class="claim fragment fade-up">
-      <span class="n">04</span>
-      <p>Organizational recombination: organizers translating Occupy, BLM, labor, and electoral lessons into durable vehicles operating at citywide scale.</p>
+    <div class="lineage last">
+      <h4>4 · Movement–elected partnership</h4>
+      <p>Engler &amp; Engler 2022. Durable relationships between grassroots orgs and movement candidates in office.</p>
     </div>
   </div>
-  <p class="editorial fragment fade-up" style="margin-top:0.6em">Each claim should be readable as a hypothesis about an <em>Ostrom condition</em> being met at the meso level — not as a feature of the candidate.</p>
-  <div class="footer">Slide 33</div>
+  <p class="small fragment fade-up" style="margin-top:1.6em; font-size:0.9em">U.S. organizers borrow vocabulary from all four. They mostly mean the fourth — and it's the most undertheorized.</p>
 </section>
 
-<!-- =========== WHAT WE CANNOT YET RESOLVE =========== -->
-
+<!-- 5. LIT — TARLAU -->
 <section data-transition="fade">
-  <div class="kicker">Closing</div>
-  <h2>What the chapter cannot yet resolve</h2>
-  <p class="fragment fade-up" style="margin-top:0.8em">
-    A serious account of what people-first politics makes possible must also be honest about the conditions under which democratic rebuilding from below can arrest authoritarian consolidation from above.
-  </p>
-  <p class="fragment fade-up small" style="margin-top:1em">Three open questions for the draft:</p>
-  <ul style="font-size:0.85em; line-height:1.55; margin-top:0.5em">
-    <li class="fragment fade-up">Can the volunteer base sustain mobilization through the Tax-the-Rich budget cycle without being absorbed into Organize NYC?</li>
-    <li class="fragment fade-up">Does the new inside-outside meeting structure survive its first <em>substantive</em> disagreement (not procedural, like Hochul, but on a budget priority)?</li>
-    <li class="fragment fade-up">Are Cea's institutional handles — community boards, Rent Board, tenant associations — being populated, or are they being staffed?</li>
+  <div class="kicker">02 · Lit review · 2 of 3 · Tarlau</div>
+  <h2>Contentious co-governance: the closest fit.</h2>
+  <p style="font-size:1.1em; margin-top:0.3em">Movements are most effective when they combine disruption with institutional pressure — <em>simultaneously, not sequentially.</em></p>
+  <blockquote class="bq green small fragment fade-up" style="margin-top:1em">
+    Contention only produces concessions where the base behind it is strong enough to make it costly to ignore.
+  </blockquote>
+  <p class="fragment fade-up small" style="margin-top:1em; font-size:0.95em">The MST stress test: 40 years, ~2M members, allied Lula government — and settlements collapsed from ~45,000 families/year to under 4,000. Open letter, July 2025: <em>"Lula, where is the Agrarian Reform?"</em></p>
+  <p class="fragment fade-up small" style="margin-top:0.6em; font-size:0.95em">Tarlau identifies <strong>how</strong> a base engages the state. She does not theorize <strong>what makes a base strong enough to engage at all.</strong></p>
+</section>
+
+<!-- 6. LIT — OSTROM -->
+<section data-transition="fade">
+  <div class="kicker">02 · Lit review · 3 of 3 · Ostrom</div>
+  <h2>Ostrom describes the prior condition.</h2>
+  <p style="margin-top:0.3em">The eight design principles aren't about engaging the state. They describe the internal constitution a group must have to act as a co-governing partner.</p>
+  <ol class="ostrom-list">
+    <li>Clear boundaries</li>
+    <li>Rules matched to local conditions</li>
+    <li>Collective-choice arenas</li>
+    <li>Monitoring</li>
+    <li>Graduated sanctions</li>
+    <li>Low-cost conflict resolution</li>
+    <li>Recognized right to organize</li>
+    <li>Nested enterprises</li>
+  </ol>
+  <p class="small fragment fade-up" style="margin-top:0.8em; font-size:0.85em">The translation is analogical, but the analogy holds: an organized base is a commons — trust, attention, capacity — vulnerable to free-riding and requiring governance rules to sustain.</p>
+</section>
+
+<!-- 7. THESIS -->
+<section data-transition="fade" class="dark">
+  <div class="kicker">03 · The thesis</div>
+  <h2 style="font-size:2.4em; color:var(--paper)">What co-governance actually requires.</h2>
+  <div class="equation" style="background:#2a2421; color:var(--paper); border-color:var(--gold); margin-top:1.4em">
+    Co-governance <span class="plus">=</span> Ostrom <span class="int">(internal)</span> <span class="plus">+</span> Tarlau <span class="ext">(external)</span>
+  </div>
+  <p class="pull fragment fade-up" style="font-size:1.5em; color:var(--paper); margin-top:1em">People-first politics travels where <span style="color:var(--gold)">Ostrom conditions</span> are met in the meso-level base.</p>
+  <p class="pull fragment fade-up" style="font-size:1.5em; color:var(--cream)">Where they aren't, you get the <em>appearance</em> of co-governance without the substance.</p>
+</section>
+
+<!-- 8. POLITICO OPENER -->
+<section data-transition="fade">
+  <div class="kicker">04 · The Politico framing · day 100</div>
+  <div class="politico-frame">
+    <img src="img/politico.png" alt="Politico — Mamdani Office of Mass Engagement">
+    <div>
+      <blockquote class="bq small">
+        Freshly elected NYC mayors often hire from their campaign. They usually don't <strong>build a scale model of it inside City Hall.</strong>
+        <span class="speaker">Politico NY, day 100</span>
+      </blockquote>
+      <blockquote class="bq small green fragment fade-up">
+        A canvassing playbook honed by DSA, perfected by 140,000 loyal foot soldiers, and now <strong>underwritten by taxpayers.</strong>
+      </blockquote>
+      <blockquote class="bq small gold fragment fade-up">
+        Is it about the issue or is it about the person, the candidate?
+        <span class="speaker">John Kaehny, Reinvent Albany</span>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- 9. POLITICO — TASCHA vs. ANONYMOUS CRITIQUE -->
+<section data-transition="fade">
+  <div class="kicker">04 · Politico, continued</div>
+  <div class="twocol">
+    <div>
+      <h4>Tascha, on record</h4>
+      <blockquote class="bq green">
+        Government should belong to the people it serves, not just the powerful and well-connected. Our work is about making that belief real.
+        <span class="speaker">Tascha Van Auken, Commissioner, Mayor's Office of Mass Engagement</span>
+      </blockquote>
+    </div>
+    <div class="col-b">
+      <h4>Anonymous strategist</h4>
+      <blockquote class="bq fragment fade-up">
+        They've trained, harnessed and are now keeping alive this army of organized people. <strong>It's not illegal, but it raises concerns.</strong>
+        <span class="speaker">Democratic strategist, to Politico</span>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- 10. HOCHUL — INTRO -->
+<section data-transition="fade">
+  <div class="kicker">05 · The Hochul rupture · Patrick × Grace</div>
+  <h2>The rupture that built the structure.</h2>
+  <p class="subtitle" style="margin-top:0.6em">January 2026. Mamdani endorses Hochul as part of a childcare deal. DSA finds out 24–48 hours before. What follows is, on its face, a near-censure — and produces a permanent inside-outside meeting structure that did not exist before.</p>
+</section>
+
+<!-- 11. HOCHUL — How it landed -->
+<section data-transition="fade">
+  <div class="kicker">05 · Hochul · how it landed</div>
+  <blockquote class="bq">
+    When Zohran endorsed Hochul, it was really annoying. They gave us a couple — maybe a day or two — a heads up, but not enough for us to change any strategy or shift a narrative.
+    <span class="speaker">Grace, NYC-DSA co-chair</span>
+  </blockquote>
+  <blockquote class="bq green fragment fade-up">
+    The target of the campaign had always been Hochul, and then Zohran tells us he's endorsing Hochul. <strong>This was in the midst of the NYSNA strike</strong>, where she had been issuing executive orders enabling hospitals to hire scabs.
+    <span class="speaker">Grace</span>
+  </blockquote>
+</section>
+
+<!-- 12. HOCHUL — The statement -->
+<section data-transition="fade">
+  <div class="kicker">05 · Hochul · the statement</div>
+  <blockquote class="bq">
+    Steering committee had an emergency meeting. We wrote a statement that was basically almost a censure of Zohran. As a courtesy, we sent that to the administration before we put it out, and <strong>they called us and asked us to edit it.</strong>
+    <span class="speaker">Grace</span>
+  </blockquote>
+  <blockquote class="bq green fragment fade-up">
+    One thing that demonstrates Zohran and his core team's commitment to DSA is that they weren't just like, "Well, fuck you guys." They took that very seriously.
+    <span class="speaker">Grace</span>
+  </blockquote>
+</section>
+
+<!-- 13. HOCHUL — The structure that followed -->
+<section data-transition="fade">
+  <div class="kicker">05 · Hochul · the structure that followed</div>
+  <blockquote class="bq">
+    That's when we started having regular meetings, not only with senior administrative officials, which we do every week now, but also with Zohran himself. <strong>We meet every other week.</strong>
+    <span class="speaker">Grace</span>
+  </blockquote>
+  <blockquote class="bq green fragment fade-up">
+    Elle was like, "Okay, something is not working. The kind of inside-outside communication is not effective. We need to fix this."
+    <span class="speaker">Grace</span>
+  </blockquote>
+</section>
+
+<!-- 14. HOCHUL — What Grace told Elle -->
+<section data-transition="fade">
+  <div class="kicker">05 · Hochul · the deficit, named</div>
+  <p class="small" style="font-size:0.95em">Someone in the administration implied there was no world in which DSA would have agreed Zohran should endorse Hochul. Grace's response:</p>
+  <blockquote class="bq green huge fragment fade-up" style="margin-top:0.8em">
+    "There may not have been. But you also didn't explain your thinking to us. We never knew the trade-offs until you told us what the decision was."
+    <span class="speaker">Grace, to Elle</span>
+  </blockquote>
+</section>
+
+<!-- 15. HOCHUL — The punchline -->
+<section data-transition="fade" class="dark">
+  <div class="kicker">05 · Hochul · the punchline</div>
+  <blockquote class="bq huge" style="border-left-color:var(--gold); color:var(--paper); font-size:2.6em">
+    "The trust is there, but the trust is not enough without structure.<br><br>And we need creativity to figure out what the structure should be."
+    <span class="speaker" style="color:var(--cream)">Grace, NYC-DSA co-chair</span>
+  </blockquote>
+</section>
+
+<!-- 16. ELLE — mandate -->
+<section data-transition="fade">
+  <div class="kicker">06 · Elle, on the transition · 1 of 2</div>
+  <h3 style="font-size:1.3em; color:var(--muted)">The mandate she carries into government</h3>
+  <blockquote class="bq green">
+    We are part of a broader left movement... <strong>government in the state is but one element of how people are free in our society.</strong>
+    <span class="speaker">Elle Bisgaard-Church, Chief of Staff</span>
+  </blockquote>
+  <blockquote class="bq fragment fade-up small">
+    The field program — teaching skills of organizing — is a way to then create tenant organizers, people who will go form a union in their workplace. <strong>All of these things in addition to how government should actually respond.</strong>
+    <span class="speaker">Elle</span>
+  </blockquote>
+</section>
+
+<!-- 17. ELLE — anti-establishment / Andrew Obama -->
+<section data-transition="fade">
+  <div class="kicker">06 · Elle · 2 of 2 · paired with Andrew on Obama</div>
+  <h3 style="font-size:1.3em; color:var(--muted)">Two voices, one warning</h3>
+  <div class="twocol" style="margin-top:0.4em">
+    <div>
+      <h4>Andrew Epstein, Director of Comms</h4>
+      <blockquote class="bq">
+        I was so far left that I wasn't even on the Obama train... the failures of that administration, the waves of hope and disappointment — <strong>in many ways, our campaign is still in a related cycle.</strong>
+      </blockquote>
+    </div>
+    <div class="col-b">
+      <h4>Elle Bisgaard-Church, Chief of Staff</h4>
+      <blockquote class="bq green fragment fade-up">
+        You've been the anti-establishment, now you're the establishment, but <strong>you didn't need the establishment to get there.</strong> We're experiencing this while governing.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- 18. CEA — pivot -->
+<section data-transition="fade">
+  <div class="kicker">07 · Cea Weaver · Director, Mayor's Office to Protect Tenants</div>
+  <blockquote class="bq huge green">
+    It's really about pivoting away from the guy and toward the collective project.
+    <span class="speaker">Cea Weaver</span>
+  </blockquote>
+  <blockquote class="bq small fragment fade-up" style="margin-top:1em">
+    Zohran can say to his people: I need your help to govern this city. The way you can help is by getting on your community board. I cannot do it without you. <strong>I want people on the community board. I want people on the Rent Board. I want tenant associations as sites of resistance.</strong>
+    <span class="speaker">Cea</span>
+  </blockquote>
+</section>
+
+<!-- 19. CEA — deliver -->
+<section data-transition="fade">
+  <div class="kicker">07 · Cea · the binding constraint</div>
+  <blockquote class="bq huge">
+    He's not going to succeed if it lives and dies with him. <strong>We have to deliver to make people believe.</strong>
+    <span class="speaker">Cea Weaver</span>
+  </blockquote>
+  <blockquote class="bq small green fragment fade-up" style="margin-top:1em">
+    That 17,000 [repeat volunteers] is more interesting to me than the 80,000. <strong>That's where you're building the power.</strong>
+    <span class="speaker">Cea</span>
+  </blockquote>
+</section>
+
+<!-- 20. TAX THE RICH — section break -->
+<section data-transition="fade" class="dark" data-background-color="#1d5a4d">
+  <div class="kicker" style="color:#e8d8a6">08 · section break</div>
+  <h1 style="font-size:5em">Tax the Rich.</h1>
+  <p class="subtitle" style="color:#e8d8a6; font-size:1.4em; margin-top:0.5em">The first co-governance test — running right now.</p>
+</section>
+
+<!-- 21. TAX THE RICH — the test, named -->
+<section data-transition="fade">
+  <div class="kicker">08 · why this campaign matters</div>
+  <h3 style="font-size:1.3em; color:var(--muted)">The first sustained co-gov campaign after Election Day</h3>
+  <ul class="questions">
+    <li>Run by DSA, not by the administration</li>
+    <li>Targets Hochul in Albany — not the mayor</li>
+    <li>Six-month window to the April budget cycle</li>
+    <li>Originally yoked to childcare; pivoted after the Hochul endorsement</li>
+    <li>Mamdani's presence at the first rally is itself a co-governance signal</li>
   </ul>
-  <p class="pull fragment fade-up accent" style="margin-top:1.2em; font-size:1.2em; color:var(--accent)">The case is a test of whether Ostrom conditions can be built in, not just inherited.</p>
-  <div class="footer">Slide 34</div>
 </section>
 
-<!-- =========== END =========== -->
+<!-- 22. TAX THE RICH — Arielle -->
+<section data-transition="fade">
+  <div class="kicker">08 · Arielle · NYC-DSA Campaign Coordinator</div>
+  <blockquote class="bq huge">
+    People say this all the time after campaigns, but they do not always mean it. <strong>We mean it: the fight is not over.</strong>
+    <span class="speaker">Arielle, post-election DSA call</span>
+  </blockquote>
+  <blockquote class="bq small green fragment fade-up" style="margin-top:1em">
+    We can keep the good vibes and the canvass vibes from the Zohran campaign going. We will do this together as socialists, as DSA.
+  </blockquote>
+</section>
 
-<section data-transition="fade" data-background-color="#1a1614">
-  <div style="text-align:center; margin-top:6vh">
-    <p class="chapter-no" style="color:#a08c5c">Chapter 8</p>
-    <h1 style="color:#f6f1ea">Co-Governing<br>and Pothole Politics.</h1>
-    <p class="subtitle" style="color:#a08c5c; margin-top:1.4em">Draft notes &middot; Elizabeth McKenna &amp; Patrick Hunter</p>
-    <p class="small" style="color:#6b6157; margin-top:2em">Sources: Zainab Azim interviews (Andrew Epstein, Cea Weaver, Elle Bisgaard-Church, Katie Riley, Tascha Van Auken, Zara Rahim); Patrick Hunter interview with Grace, NYC-DSA co-chair; NYC-DSA post-election call (Michael Lang, Tascha Van Auken, Jamal Bowman, Arielle); Politico NY (Day 100 coverage); mamdani-endorsements.</p>
+<!-- 23. TAX THE RICH — Grace on press asymmetry -->
+<section data-transition="fade">
+  <div class="kicker">08 · Grace · why this is harder than it looks from outside</div>
+  <blockquote class="bq green huge">
+    The reason we have to be so careful is the media wants the split narrative... <strong>they're always looking for moments where DSA, or the broader left, and Zohran are out of step</strong> — because they want to weaken both him and us.
+    <span class="speaker">Grace, NYC-DSA co-chair</span>
+  </blockquote>
+</section>
+
+<!-- 24. LANG ON DINKINS -->
+<section data-transition="fade">
+  <div class="kicker">09 · Michael Lang · comparative warning</div>
+  <blockquote class="bq">
+    What Zohran accomplished is the next modern-day iteration of the Rainbow Coalition.
+    <span class="speaker">Michael Lang, political analyst, post-election DSA call</span>
+  </blockquote>
+  <blockquote class="bq green huge fragment fade-up" style="margin-top:0.8em">
+    Dinkins won in 1989 under similar circumstances. <strong>Four years later he ran in a rematch with Giuliani with almost the same coalition and lost very narrowly.</strong> This coalition, beautiful as it is, is strong but also fragile.
+    <span class="speaker">Michael Lang</span>
+  </blockquote>
+</section>
+
+<!-- 25. WHAT WE CANNOT YET RESOLVE -->
+<section data-transition="fade">
+  <div class="kicker">10 · Closing</div>
+  <h2 style="font-size:2.4em">What we cannot yet resolve.</h2>
+  <p style="margin-top:0.4em; font-size:1.05em">Three open questions for the draft:</p>
+  <ul class="questions">
+    <li class="fragment fade-up">Can the volunteer base sustain mobilization through the budget cycle without being absorbed into Organize NYC?</li>
+    <li class="fragment fade-up">Does the new inside-outside meeting structure survive its first <em>substantive</em> disagreement — not procedural like Hochul, but on a budget priority?</li>
+    <li class="fragment fade-up">Are Cea's institutional handles — community boards, Rent Board, tenant associations — being populated, or merely staffed?</li>
+  </ul>
+</section>
+
+<!-- 26. END -->
+<section data-transition="fade" class="dark">
+  <div style="text-align:center">
+    <div class="kicker" style="color:var(--gold)">Chapter 8</div>
+    <h1 style="color:var(--paper); font-size:4.4em">Co-Governing<br>and Pothole Politics.</h1>
+    <p class="subtitle" style="color:var(--cream); margin-top:1.4em">McKenna &amp; Hunter · 2026-05-15</p>
   </div>
 </section>
 
@@ -821,9 +640,9 @@
     controlsTutorial: false,
     progress: true,
     center: false,
-    width: 1400,
-    height: 900,
-    margin: 0.06,
+    width: 1500,
+    height: 950,
+    margin: 0.04,
     minScale: 0.2,
     maxScale: 2.0,
     fragments: true,
